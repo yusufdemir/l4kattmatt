@@ -99,6 +99,7 @@
                     {{ Session::get('successMessage') }}
                 </div>
                 @endif
+
                 {{ $content }}
 
                 <div class="ads-content">
@@ -112,6 +113,7 @@
             <!--Sidebar END-->
 	    </div>
         <!--Container END-->
+        <div style="clear: both"></div>
         <div class="footerWrappers">
             <div class="footer">
                 ©2014 Tüm Hakları Saklıdır
