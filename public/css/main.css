@@ -1,0 +1,237 @@
+body {
+    margin: 0px;
+    padding: 0px ;
+    min-height: 600px;
+}
+
+.container{
+    width: 960px;
+    margin: 0 auto;
+    padding:0;
+}
+
+.topPadding{
+padding-top:30px;
+}
+
+.alert{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*TOP BAR*/
+
+.fixTopBarWrapper{
+    position: fixed;
+    background-color: #222222;
+    width: 100%;
+    border-bottom: 1px solid #962525;
+    z-index: 9999;
+}
+
+.fixTopBar{
+    width: 960px;
+    height: 40px;
+    margin: 0 auto;
+    padding:0;
+}
+
+.fixTopBar .logo{
+    float: left;
+    width: 200px;
+    height: 49px;
+    background-color: #000000;
+    color: #ffffff;
+    margin:-10px 10px 0 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: larger;
+    line-height: 50px;
+}
+/**************************TOP MENU*************************************/
+.fixTopBar ul.topMenu{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.fixTopBar ul.topMenu li{
+    float: left;
+    line-height: 30px;
+}
+
+.fixTopBar ul.topMenu li a{
+    display: block;
+    color: #ffffff;
+    margin-right: 20px;
+}
+
+.fixTopBar ul.topMenu li a:hover{
+     text-decoration: none;
+     color: red;
+ }
+
+/**************************TOP MENU END*********************************/
+
+/*TOP BAR END*/
+
+/*TOP İTEMS START*/
+.last-itemsWrappers{
+    height: 200px;
+    background-color: #000000;
+    color: #ffffff;
+    padding-top: 57px ;
+}
+
+.last-items{
+    width: 960px;
+    margin:0 auto;
+    height: 200px;
+
+}
+
+.last-items img:hover{
+    border: 1px solid red;
+}
+
+.bx-viewport{
+    height: 140px;
+}
+
+/*TOP İTEMS END*/
+
+/*CONTENT START*/
+.content{
+    width: 700px;
+    margin-right: 10px;
+    float: left;
+}
+
+.ads-content{
+    width: 700px;
+    height: 90px;
+    border-radius: 3px;
+    background-color: #cccccc;
+}
+.ads-content, .ads-content img{
+    border-radius: 5px;
+}
+
+.tab-pane{
+    height: 500px;
+    margin-bottom: 10px;
+}
+/*CONTENT END*/
+
+/*SideBAR START*/
+.sidebar{
+    width: 250px;
+    float: left;
+}
+/*SideBAR END*/
+
+
+/*Footer START*/
+.footerWrappers{
+    width: 100%;
+    min-height: 50px;
+    margin-top: 10px;
+    background-color: #000000;
+    border-top:1px solid red ;
+}
+.footer{
+    width: 960px;
+    height: 50px;
+    margin: 0 auto;
+    color: #ffffff;
+    line-height: 50px;
+}
+/*Footer END*/
+
+.form-signup, .form-signin {
+	width: 400px;
+	margin: 0 auto;
+}
+
+
+/*sing İn Form*/
+
+.loginForm-text{
+    line-height: 450px;
+}
+
+.containerAuth{
+    width: 700px;
+}
+.fullscreen_bg {
+    width: 700px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('http://31.media.tumblr.com/ad65726441493f47e0c8f0473206f4e5/tumblr_mvwl4fCEb21rdpk23o1_1280.jpg');
+    min-height: 500px;
+    border-radius: 17px;
+    margin: 10px 0 10px 0;
+}
+.form-signin {
+    max-width: 280px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin {
+    margin-bottom: 10px;
+}
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+
+
+.form-signin .last {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-color: #000;
+}
+
+.form-signin .first {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-color: #000;
+}
+
+.form-signin .bottom {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: #000;
+}
+.form-signin-heading {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+
+/*Sing İn Form END*/
