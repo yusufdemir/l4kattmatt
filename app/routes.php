@@ -16,6 +16,8 @@
 	return View::make('hello');
 });*/
 
-Route::get('/', array('as' => 'index', 'uses' => 'UsersController@getDashboard'));
+Route::get('/', array('as' => 'index', 'uses' => 'HomeControllers@index'));
 
 Route::controller('users', 'UsersController');
+
+Route::controller('pages', 'HomeControllers');

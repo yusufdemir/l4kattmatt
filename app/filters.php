@@ -78,3 +78,9 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+View::composer('layouts.main', function($view)
+{
+    $view->with('news', Images::All());
+});

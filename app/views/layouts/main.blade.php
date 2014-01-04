@@ -28,17 +28,17 @@
                 <!--LOGO END-->
                 <!--Pages-->
                 <ul class="topMenu">
-                    <li>{{ HTML::link('users/dashboard', 'Anasayfa') }}</li>
-                    <li>{{ HTML::link('users/dashboard', 'Resimler') }}</li>
-                    <li>{{ HTML::link('users/dashboard', 'Hareketli Resimler') }}</li>
-                    <li>{{ HTML::link('users/dashboard', 'Videolar') }}</li>
-                    <li>{{ HTML::link('users/dashboard', 'Vine') }}</li>
+                    <li>{{ HTML::link(URL::route('index'), 'Anasayfa') }}</li>
+                    <li>{{ HTML::link(URL::route('index'), 'Resimler') }}</li>
+                    <li>{{ HTML::link(URL::route('index'), 'Hareketli Resimler') }}</li>
+                    <li>{{ HTML::link(URL::route('index'), 'Videolar') }}</li>
+                    <li>{{ HTML::link(URL::route('index'), 'Vine') }}</li>
                 </ul>
                 <!--Pages END-->
 
                 <!--Auth MENU-->
                 <ul class="topMenu" style="float: right;">
-                    <li>{{ HTML::link('users/dashboard', 'Yükle') }}</li>
+                    <li>{{ HTML::link(URL::route('index'), 'Yükle') }}</li>
                     @if(!Auth::check())
                     <li>{{ HTML::link('users/register', 'Kayıt Ol') }}</li>
                     <li>{{ HTML::link('users/login', 'Giriş Yap') }}</li>
@@ -66,6 +66,9 @@
         <div class="last-itemsWrappers">
             <div class="last-items">
                 <div class="slider4" style="height: 150px;">
+                    @foreach ($news as $new)
+                        <div class="slide"><a href="#"><img src="{{ $new->src }}" width="200" height="120"></a></div>
+                    @endforeach
                     <div class="slide"><a href="#"><img src="http://placehold.it/200x135&text=FooBar1"></a></div>
                     <div class="slide"><a href="#"><img src="http://placehold.it/200x135&text=FooBar2"></a></div>
                     <div class="slide"><img src="http://placehold.it/200x135&text=FooBar3"></div>

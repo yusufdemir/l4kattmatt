@@ -46,7 +46,7 @@ class UsersController extends BaseController {
 	}
 
 	public function getDashboard() {
-		$this->layout->content = View::make('users.dashboard');
+		$this->layout->content = View::make('home.dashboard');
 	}
 
 	public function getLogout() {
