@@ -17,6 +17,12 @@ class Images extends Eloquent
         return Url::to($convert);
     }
 
+    public function slugName()
+    {
+        $convert=Str::slug($this->name);
+        return $convert;
+    }
+
     /**
      * Get the icon to the post.
      *
