@@ -18,6 +18,8 @@
 
 Route::get('/', array('as' => 'index', 'uses' => 'HomeControllers@index'));
 
+Route::get('show/{id}/{name?}', array('as' => 'show', 'uses' => 'HomeControllers@show'));
+
 Route::controller('users', 'UsersController');
 
-Route::controller('pages', 'HomeControllers');
+//Route::controller('pages', 'HomeControllers');

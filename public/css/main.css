@@ -265,3 +265,17 @@ padding-top:30px;
     z-index:2;
 }
 /*thumbnail items END*/
+
+
+/*SHOW BOX START*/
+.showBox{
+    min-height: 600px;
+    background-color: cadetblue;
+    margin: 10px 0 10px 0;
+    float: left;
+    width: 700px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+/*SHOW PAGE END*/

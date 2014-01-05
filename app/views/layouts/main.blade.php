@@ -16,7 +16,6 @@
         {{ HTML::script('packages/bxslider/jquery.bxslider.js') }}
         <!--GET JS END-->
 
-
   	</head>
 
   	<body>
@@ -67,7 +66,11 @@
             <div class="last-items">
                 <div class="slider4" style="height: 150px;">
                     @foreach ($news as $new)
-                        <div class="slide"><a href="#"><img src="{{ $new->src }}" width="200" height="120"></a></div>
+                        <div class="slide">
+                            <a href="/show/{{ $new->id }}/{{$new->slugName()}}">
+                                <img src="{{ $new->src }}" width="200" height="120">
+                            </a>
+                        </div>
                     @endforeach
                     <div class="slide"><a href="#"><img src="http://placehold.it/200x135&text=FooBar1"></a></div>
                     <div class="slide"><a href="#"><img src="http://placehold.it/200x135&text=FooBar2"></a></div>

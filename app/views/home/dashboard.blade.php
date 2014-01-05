@@ -56,7 +56,7 @@
                     <div class="type">
                         {{ $image->icon() }}
                     </div>
-                    <a href="#{{ $image->id }}">
+                    <a href="show/{{ $image->id }}/{{$image->slugName()}}">
                         <img src="{{ $image->src }}" width="200" height="200" />
                         <div>
                             <span>{{ $image->name }}</span>
@@ -80,7 +80,7 @@
                         <div class="type">
                             {{ $image->icon() }}
                         </div>
-                        <a href="#{{ $image->id }}">
+                        <a href="show/{{ $image->id }}/{{$image->slugName()}}">
                             <img src="{{ $image->src }}" width="200" height="200" />
                             <div>
                                 <span>{{ $image->name }}</span>
@@ -103,7 +103,7 @@
                         <div class="type">
                             {{ $image->icon() }}
                         </div>
-                        <a href="#{{ $image->id }}">
+                        <a href="show/{{ $image->id }}/{{$image->slugName()}}">
                             <img src="{{ $image->src }}" width="200" height="200" />
                             <div>
                                 <span>{{ $image->name }}</span>
@@ -120,16 +120,16 @@
     <div class="tab-pane" id="videos">
         <ul id="da-thumbs" class="da-thumbs">
 
-            @foreach ($images as $image)
+            @foreach ($videos as $video)
             <li>
                 <div class="type">
-                    {{ $image->icon() }}
+                    <span class="glyphicon glyphicon-film"></span>
                 </div>
-                <a href="#{{ $image->id }}">
-                    <img src="{{ $image->src }}" width="200" height="200" />
+                <a href="#{{ $video->id }}">
+                    <img src="{{ $video->thumbnail_src }}" width="200" height="200" />
                     <div>
-                        <span>{{ $image->name }}</span>
-                        <span>{{ $image->description }}</span>
+                        <span>{{ $video->name }}</span>
+                        <span>{{ $video->description }}</span>
                     </div>
                 </a>
             </li>

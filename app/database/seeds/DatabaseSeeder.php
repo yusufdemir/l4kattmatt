@@ -22,11 +22,37 @@ class DatabaseSeeder extends Seeder {
         $this->call('defaultimages');
         $this->command->info('default images created :) !');
 
-        //$this->call('defaultVideos');
-        //$this->command->info('default videos created :) !');
+        $this->call('defaultVideosSites');
+        $this->command->info('default Videos Sites created :) !');
+
+        $this->call('defaultVideos');
+        $this->command->info('default videos created :) !');
 
 
 	}
+
+}
+
+class defaultCategories extends Seeder{
+
+    public function run(){
+        // Tabloyu Temizler
+        DB::table('categories')->delete();
+        // tabloya girilecek veriler
+        DB::table('categories')->insert(array(
+            array(
+                'name'=>'Genel',
+                'description'=>'açıklama metni',
+                'created_at'=>date('Y-m-d H:i:s')
+            ),
+            array(
+                'name'=>'Hareketli Resimler',
+                'description'=>'açıklama metni',
+                'created_at'=>date('Y-m-d H:i:s')
+            )
+        ));
+
+    }
 
 }
 
@@ -65,7 +91,7 @@ class defaultimages extends Seeder{
         // tabloya girilecek veriler
         DB::table('images')->insert(array(
             array(
-                'name'=>'Bahattinden Seçme :)',
+                'name'=>'Bahattinden Sabit Resim :)',
                 'description'=>'açıklama metni',
                 'src'=>'http://aykutaksu.com/wp-content/uploads/2013/11/baaddin-karikatur2.jpg',
                 'type'=>0,
@@ -74,8 +100,8 @@ class defaultimages extends Seeder{
                 'created_at'=>date('Y-m-d H:i:s')
             ),
             array(
-                'name'=>'Bahattinden Seçme :)',
-                'description'=>'açıklama metni',
+                'name'=>'Hareketli Resim :)',
+                'description'=>'açıklama metni test-- bu resim bir giftir',
                 'src'=>'http://www.thisiscolossal.com/wp-content/uploads/2013/01/3.gif',
                 'type'=>1,//gif :)
                 'user_id'=>1,
@@ -87,7 +113,36 @@ class defaultimages extends Seeder{
     }
 }
 
-/*
+
+
+class defaultVideosSites extends Seeder{
+
+    public function run(){
+        // Tabloyu Temizler
+        DB::table('video_sites')->delete();
+        // tabloya girilecek veriler
+        DB::table('video_sites')->insert(array(
+            array(
+                'name'=>'YOUTUBE',
+                'description'=>'Twitter Videoları',
+                'link'=>'https://www.youtube.com/',
+                'created_at'=>date('Y-m-d H:i:s')
+            ),
+            array(
+                'name'=>'VİNE',
+                'description'=>'Vine Videoları',
+                'link'=>'https://www.vine.com/',
+                'created_at'=>date('Y-m-d H:i:s')
+            )
+        ));
+
+    }
+
+}
+
+
+
+
 class defaultVideos extends Seeder{
 
     public function run(){
@@ -96,45 +151,23 @@ class defaultVideos extends Seeder{
         // tabloya girilecek veriler
         DB::table('videos')->insert(array(
             array(
-                'name'=>'Bahattinden Seçme :)',
-                'description'=>'açıklama metni',
-                'src'=>'http://aykutaksu.com/wp-content/uploads/2013/11/baaddin-karikatur2.jpg',
-                'type'=>0,
+                'name'=>'Test Video 1 :)',
+                'description'=>'açıklama metni 1',
+                'src'=>'https://www.youtube.com/watch?v=0NKUpo_xKyQ',
+                'thumbnail_src'=>'https://i1.ytimg.com/vi/0NKUpo_xKyQ/default.jpg',
+                'video_site_id'=>1,//youtube :)
                 'user_id'=>1,
                 'cat_id'=>1,
                 'created_at'=>date('Y-m-d H:i:s')
             ),
             array(
-                'name'=>'Bahattinden Seçme :)',
-                'description'=>'açıklama metni',
-                'src'=>'http://www.thisiscolossal.com/wp-content/uploads/2013/01/3.gif',
-                'type'=>1,//gif :)
+                'name'=>'Test Video 2 :)',
+                'description'=>'açıklama metni 2',
+                'src'=>'https://www.youtube.com/watch?v=RbtPXFlZlHg',
+                'thumbnail_src'=>'https://i1.ytimg.com/vi/RbtPXFlZlHg/default.jpg',
+                'video_site_id'=>1,//youtube :)
                 'user_id'=>1,
                 'cat_id'=>1,
-                'created_at'=>date('Y-m-d H:i:s')
-            )
-        ));
-
-    }
-
-}*/
-
-
-class defaultCategories extends Seeder{
-
-    public function run(){
-        // Tabloyu Temizler
-        DB::table('categories')->delete();
-        // tabloya girilecek veriler
-        DB::table('categories')->insert(array(
-            array(
-                'name'=>'Genel',
-                'description'=>'açıklama metni',
-                'created_at'=>date('Y-m-d H:i:s')
-            ),
-            array(
-                'name'=>'Hareketli Resimler',
-                'description'=>'açıklama metni',
                 'created_at'=>date('Y-m-d H:i:s')
             )
         ));
@@ -142,3 +175,4 @@ class defaultCategories extends Seeder{
     }
 
 }
+

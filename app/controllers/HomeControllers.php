@@ -10,7 +10,8 @@ class HomeControllers extends BaseController {
 	public function index()
 	{
         $images = Images::All();
-         $this->layout->content = View::make('home.dashboard')->with('images',$images);
+        $videos = Videos::All();
+        $this->layout->content = View::make('home.dashboard')->with(array('images'=>$images,'videos'=>$videos));
 	}
 
 	/**
@@ -41,7 +42,8 @@ class HomeControllers extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('home.show');
+        $item=Images::find($id);
+         $this->layout->content=View::make('home.show')->with('show_item',$item->src);
 	}
 
 	/**

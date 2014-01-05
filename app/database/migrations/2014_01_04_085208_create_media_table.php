@@ -52,6 +52,7 @@ class CreateMediaTable extends Migration {
             $table->string('name', 140);
             $table->string('description', 240)->nullable();
             $table->string('src');
+            $table->string('thumbnail_src');
             $table->timestamps();
             $table->integer('user_id')->unsigned();
             $table->integer('video_site_id')->unsigned();
