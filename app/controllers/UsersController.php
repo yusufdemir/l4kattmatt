@@ -37,7 +37,7 @@ class UsersController extends BaseController {
 
 	public function postSignin() {
 		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
-			return Redirect::to('users/dashboard')->with('successMessage', 'Başarıyla Giriş Yapıldı');
+			return Redirect::route('index')->with('successMessage', 'Başarıyla Giriş Yapıldı');
 		} else {
 			return Redirect::to('users/login')
 				->with('errorMessage', 'Bu bilgilere sahip bir kullanıcı bulunamadı!Bilgileri kontrol edip tekrar deneyiniz!')
