@@ -82,5 +82,9 @@ Route::filter('csrf', function()
 
 View::composer('layouts.main', function($view)
 {
-    $view->with('news', Images::All());
+    $news = Cache::remember('newsTop', 60, function()
+    {
+        return Images::All();
+    });
+    $view->with('news', $news);
 });

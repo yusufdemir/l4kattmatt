@@ -125,5 +125,12 @@
                 ©2014 Tüm Hakları Saklıdır
             </div>
         </div>
+        <!--SCRIPTS-->
+        <script type="text/javascript">
+            $(function() {
+                $('.tip').tooltip();
+            });
+        </script>
+        <!--SCRIPTS-->
   	</body>
 </html>
