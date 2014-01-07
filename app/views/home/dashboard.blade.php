@@ -57,7 +57,11 @@
                         {{ $image->icon() }}
                     </div>
                     <a href="show/{{ $image->id }}/{{$image->slugName()}}">
-                        <img src="{{ $image->src }}" width="200" height="200" />
+                        @if($image->type==3)
+                            <img src="{{ $image->thumbnail_src }}" width="200" height="200" />
+                        @else
+                            <img src="{{ $image->src }}" width="200" height="200" />
+                        @endif
                         <div>
                             <span>{{ $image->name }}</span>
                             <span>{{ $image->description }}</span>

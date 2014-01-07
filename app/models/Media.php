@@ -1,9 +1,9 @@
 <?php
 use Illuminate\Support\Facades\URL; # not sure why i need this here :c
 
-class Images extends Eloquent
+class Media extends Eloquent
 {
-    protected $table = 'images';
+    protected $table = 'media';
 
 
     /**
@@ -30,10 +30,14 @@ class Images extends Eloquent
      */
     public function icon()
     {
-        if($this->type==0){
+        if($this->type==1){
             $icon='<span class="glyphicon glyphicon-picture"></span>';
-        }else if($this->type==1){
+        }else if($this->type==2){
             $icon='<span class="glyphicon glyphicon-flash"></span>';
+        }else if($this->type==3){
+            $icon='<span class="glyphicon glyphicon-facetime-video"></span>';
+        }else{
+            $icon='<span class="glyphicon glyphicon-eye-close"></span>';
         }
         return $icon;
     }

@@ -84,7 +84,7 @@ View::composer('layouts.main', function($view)
 {
     $news = Cache::remember('newsTop', 60, function()
     {
-        return Images::All();
+        return Media::All();
     });
     $view->with('news', $news);
 });

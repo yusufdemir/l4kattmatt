@@ -9,19 +9,13 @@ class HomeControllers extends BaseController {
 	 */
 	public function index()
 	{
-        $videos = Cache::remember('videos', 60, function()
+        $Media = Cache::remember('Media', 60, function()
         {
-            return Videos::All();
-        });
-
-
-        $images = Cache::remember('images', 60, function()
-        {
-            return Images::All();
+            return Media::All();
         });
 
         //$cacheimg = Cache::get('images');
-        $this->layout->content = View::make('home.dashboard')->with(array('images'=>$images,'videos'=>$videos));
+        $this->layout->content = View::make('home.dashboard')->with(array('images'=>$Media,'videos'=>$Media));
 	}
 
 	/**
@@ -53,7 +47,7 @@ class HomeControllers extends BaseController {
 	public function show($id)
 	{
 
-        $item=Images::find($id);
+        $item=Media::find($id);
         $user=User::find($item->user_id);
 
         $this->layout->content=View::make('home.show')

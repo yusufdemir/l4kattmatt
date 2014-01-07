@@ -19,14 +19,11 @@ class DatabaseSeeder extends Seeder {
         $this->call('defaultUsers');
         $this->command->info('default users created :) !');
 
-        $this->call('defaultimages');
-        $this->command->info('default images created :) !');
-
         $this->call('defaultVideosSites');
         $this->command->info('default Videos Sites created :) !');
 
-        $this->call('defaultVideos');
-        $this->command->info('default videos created :) !');
+        $this->call('defaultMedia');
+        $this->command->info('default Media  created :) !');
 
 
 	}
@@ -82,39 +79,6 @@ class defaultUsers extends Seeder{
     }
 
 }
-
-class defaultimages extends Seeder{
-
-    public function run(){
-        // Tabloyu Temizler
-        DB::table('images')->delete();
-        // tabloya girilecek veriler
-        DB::table('images')->insert(array(
-            array(
-                'name'=>'Bahattinden Sabit Resim :)',
-                'description'=>'açıklama metni',
-                'src'=>'http://aykutaksu.com/wp-content/uploads/2013/11/baaddin-karikatur2.jpg',
-                'type'=>0,
-                'user_id'=>1,
-                'cat_id'=>1,
-                'created_at'=>date('Y-m-d H:i:s')
-            ),
-            array(
-                'name'=>'Hareketli Resim :)',
-                'description'=>'açıklama metni test-- bu resim bir giftir',
-                'src'=>'http://www.thisiscolossal.com/wp-content/uploads/2013/01/3.gif',
-                'type'=>1,//gif :)
-                'user_id'=>1,
-                'cat_id'=>1,
-                'created_at'=>date('Y-m-d H:i:s')
-            )
-        ));
-
-    }
-}
-
-
-
 class defaultVideosSites extends Seeder{
 
     public function run(){
@@ -122,6 +86,12 @@ class defaultVideosSites extends Seeder{
         DB::table('video_sites')->delete();
         // tabloya girilecek veriler
         DB::table('video_sites')->insert(array(
+            array(
+                'name'=>'NOTVİDEO',
+                'description'=>'NULLFK',
+                'link'=>'/',
+                'created_at'=>date('Y-m-d H:i:s')
+            ),
             array(
                 'name'=>'YOUTUBE',
                 'description'=>'Twitter Videoları',
@@ -140,22 +110,20 @@ class defaultVideosSites extends Seeder{
 
 }
 
-
-
-
-class defaultVideos extends Seeder{
+class defaultMedia extends Seeder{
 
     public function run(){
         // Tabloyu Temizler
-        DB::table('videos')->delete();
+        DB::table('media')->delete();
         // tabloya girilecek veriler
-        DB::table('videos')->insert(array(
+        DB::table('media')->insert(array(
             array(
                 'name'=>'Test Video 1 :)',
                 'description'=>'açıklama metni 1',
                 'src'=>'https://www.youtube.com/watch?v=0NKUpo_xKyQ',
                 'thumbnail_src'=>'https://i1.ytimg.com/vi/0NKUpo_xKyQ/default.jpg',
-                'video_site_id'=>1,//youtube :)
+                'type'=>3,//Videos
+                'video_site_id'=>2,//youtube :)
                 'user_id'=>1,
                 'cat_id'=>1,
                 'created_at'=>date('Y-m-d H:i:s')
@@ -165,7 +133,31 @@ class defaultVideos extends Seeder{
                 'description'=>'açıklama metni 2',
                 'src'=>'https://www.youtube.com/watch?v=RbtPXFlZlHg',
                 'thumbnail_src'=>'https://i1.ytimg.com/vi/RbtPXFlZlHg/default.jpg',
-                'video_site_id'=>1,//youtube :)
+                'type'=>3,//Videos
+                'video_site_id'=>2,//youtube :)
+                'user_id'=>1,
+                'cat_id'=>1,
+                'created_at'=>date('Y-m-d H:i:s')
+            ),
+            array(
+
+                'name'=>'Bahattinden - Dedemi ihbar etmeyi düşünüyorum :)',
+                'description'=>'Oha çok iyi ya :)',
+                'src'=>'http://aykutaksu.com/wp-content/uploads/2013/11/baaddin-karikatur2.jpg',
+                'thumbnail_src'=>'',
+                'type'=>1,
+                'video_site_id'=>1,//notvideo :)
+                'user_id'=>1,
+                'cat_id'=>1,
+                'created_at'=>date('Y-m-d H:i:s')
+            ),
+            array(
+                'name'=>'Hareketli Resim :)',
+                'description'=>'açıklama metni test-- bu resim bir giftir',
+                'src'=>'http://www.thisiscolossal.com/wp-content/uploads/2013/01/3.gif',
+                'thumbnail_src'=>'',
+                'type'=>2,//gif :)
+                'video_site_id'=>1,//notvideo :)
                 'user_id'=>1,
                 'cat_id'=>1,
                 'created_at'=>date('Y-m-d H:i:s')

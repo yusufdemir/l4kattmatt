@@ -68,10 +68,16 @@
                     @foreach ($news as $new)
                         <div class="slide">
                             <a href="/show/{{ $new->id }}/{{$new->slugName()}}">
+                                @if($new->type==3)
+                                <img src="{{ $new->thumbnail_src }}" width="200" height="120">
+                                @else
                                 <img src="{{ $new->src }}" width="200" height="120">
+                                @endif
+
                             </a>
                         </div>
                     @endforeach
+                    <!-- Last Modified :D
                     <div class="slide"><a href="#"><img src="http://placehold.it/200x135&text=FooBar1"></a></div>
                     <div class="slide"><a href="#"><img src="http://placehold.it/200x135&text=FooBar2"></a></div>
                     <div class="slide"><img src="http://placehold.it/200x135&text=FooBar3"></div>
@@ -82,6 +88,7 @@
                     <div class="slide"><img src="http://placehold.it/200x135&text=FooBar8"></div>
                     <div class="slide"><img src="http://placehold.it/200x135&text=FooBar9"></div>
                     <div class="slide"><img src="http://placehold.it/200x135&text=FooBar10"></div>
+                    -->
                 </div>
             </div>
         </div>

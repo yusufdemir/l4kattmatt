@@ -3,16 +3,12 @@
 use Illuminate\Database\Migrations\Migration;
 
 class CreateMediaTable extends Migration {
-
 	/**
 	 * Run the migrations.
-	 *
 	 * @return void
 	 */
 	public function up()
 	{
-		//
-
         Schema::create('categories', function($table){
             $table->engine ='InnoDB';
             $table->increments('id');
@@ -20,21 +16,6 @@ class CreateMediaTable extends Migration {
             $table->string('description', 240)->nullable();
             $table->integer('type')->unsigned()->default('0');// is video or image default image=0
             $table->timestamps();
-        });
-
-        Schema::create('images', function($table){
-            $table->engine ='InnoDB';
-            $table->increments('id');
-            $table->string('name', 140);
-            $table->string('description', 240)->nullable();
-            $table->string('src');
-            $table->timestamps();
-            $table->integer('type')->unsigned()->default('0');// is gif to 1
-            $table->integer('user_id')->unsigned();
-            $table->integer('cat_id')->unsigned();
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('cat_id')->references('id')->on('categories');
         });
 
         Schema::create('video_sites', function($table){
@@ -46,26 +27,24 @@ class CreateMediaTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('videos', function($table){
+
+        Schema::create('media', function($table){
             $table->engine ='InnoDB';
             $table->increments('id');
             $table->string('name', 140);
             $table->string('description', 240)->nullable();
             $table->string('src');
-            $table->string('thumbnail_src');
+            $table->string('thumbnail_src')->nullable();
+            $table->integer('type')->unsigned()->default('0');// 1img 2 videos 3gif
+            $table->integer('video_site_id')->unsigned()->default('0');//0 Not Video 1youtube 2 vimeo 3 vine 4..vsvs
             $table->timestamps();
+
             $table->integer('user_id')->unsigned();
-            $table->integer('video_site_id')->unsigned();
             $table->integer('cat_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('video_site_id')->references('id')->on('video_sites');
             $table->foreign('cat_id')->references('id')->on('categories');
         });
-
-
-
-
 	}
 
 	/**
@@ -76,11 +55,10 @@ class CreateMediaTable extends Migration {
 	public function down()
 	{
 
-        Schema::drop('categories');
-        Schema::drop('images');
-        //
+
         Schema::drop('video_sites');
-        Schema::drop('videos');
+        Schema::drop('media');
+        Schema::drop('categories');
 
 	}
 
