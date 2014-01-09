@@ -15,7 +15,7 @@ class HomeControllers extends BaseController {
         });
 
         //$cacheimg = Cache::get('images');
-        $this->layout->content = View::make('home.dashboard')->with(array('images'=>$Media,'videos'=>$Media));
+        $this->layout->content = View::make('home.dashboard')->with('medias',$Media);
 	}
 
 	/**
@@ -44,14 +44,24 @@ class HomeControllers extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
+        $item         =DB::table('media')->where('slug', $slug)->first();
+        $previousSlug = Media::where('id', '<', $item->id)->max('slug');
+        $nextSlug     = Media::where('id', '>', $item->id)->first();
 
-        $item=Media::find($id);
+        //////////////////////////////////////////////
         $user=User::find($item->user_id);
-
+            if($item->type==3){
+                $item->video_site_id;
+            }
         $this->layout->content=View::make('home.show')
-            ->with([ 'show_item'=>$item, 'username'=>$user]);
+            ->with([
+                'show_item'=>$item,
+                'username'=>$user,
+                'next'=>$nextSlug,
+                'prev'=>$previousSlug,
+            ]);
 	}
 
 	/**

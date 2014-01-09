@@ -271,13 +271,14 @@ padding-top:30px;
 /*SHOW BOX START*/
 
 .showBoxHead{
-    background-color: rgba(255, 255, 255, 0.46);
+    background-color: #000;
     margin: 10px 0 -10px 0;
     float: left;
     width: 700px;
     border-radius: 5px 5px 0px 0px;
     box-sizing: border-box;
     padding: 10px;
+    color:white;
 }
 .showBoxHead h1{
     font-size: 25px;
@@ -309,7 +310,7 @@ padding-top:30px;
 }
 
 .showBox{
-    min-height: 200px;
+    min-height: 350px;
     background-color: #ffffff;
     margin: 10px 0 10px 0;
     float: left;
@@ -317,5 +318,33 @@ padding-top:30px;
     border-radius: 0px 0px 5px 5px;
     box-sizing: border-box;
     padding: 10px;
+}
+
+.buttons_p_n {
+    position: relative;
+    margin: 0px 0px 0px -30px;
+    top: 200px;
+    width: 742px;
+    z-index: 1;
+    float: left;
+    height: 0px;
+}
+.prev_p {
+    background: url("../images/button_left.png") repeat scroll 0% 0% transparent;
+    float: left;
+    width: 55px;
+    height: 57px;
+}
+.prev_p:active {
+    margin-top: 5px;
+}
+.next_p {
+    background: url("../images/button_right.png") repeat scroll -55px 0px transparent;
+    float: right;
+    width: 55px;
+    height: 57px;
+}
+.next_p:active {
+    margin-top: 5px;
 }
 /*SHOW PAGE END*/

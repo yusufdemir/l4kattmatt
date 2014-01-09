@@ -32,6 +32,7 @@ class CreateMediaTable extends Migration {
             $table->engine ='InnoDB';
             $table->increments('id');
             $table->string('name', 140);
+            $table->string('slug')->unique();
             $table->string('description', 240)->nullable();
             $table->string('src');
             $table->string('thumbnail_src')->nullable();

@@ -40,5 +40,37 @@
 
 </div>
 <div class="showBox">
+
+    <div class="buttons_p_n">
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                /*
+                $('#loveit').click(function()
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: "http://nexthon.com/vmp/vote.php",
+                        data: { permalink: "awesome-car"}
+                    })
+                    $(this).css({"background" :  "url('../images/thumb_pink.png') no-repeat scroll 0% 0% #333"});
+                    $(this).unbind();
+                });*/
+                $("body").keydown(function(e) {
+                    if(e.keyCode == 37) { // left
+                        window.location  = $('#prev_p').attr('href');
+                    }
+                    else if(e.keyCode == 39) { // right
+                        window.location  = $('#next_p').attr('href');
+                    }
+                });
+            });
+        </script>
+        <div id="floating-box">
+            <div id="right-social" style="margin-top: 0px;"></div>
+        </div>
+        <a id="prev_p" class="prev_p" title="Iguana" href="{{@$prev}}"></a>
+        <a id="next_p" class="next_p" title="The Artists" href="{{@$next->slug}}"></a>
+    </div>
     <img src="{{$show_item->src}}" alt="" width="650" style="margin-left: 15px;"/>
 </div>
+<!--END SHOW BOX-->

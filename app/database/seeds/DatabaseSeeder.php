@@ -119,6 +119,7 @@ class defaultMedia extends Seeder{
         DB::table('media')->insert(array(
             array(
                 'name'=>'Test Video 1 :)',
+                'slug'=>Str::slug('Test Video 1 :)'),
                 'description'=>'açıklama metni 1',
                 'src'=>'https://www.youtube.com/watch?v=0NKUpo_xKyQ',
                 'thumbnail_src'=>'https://i1.ytimg.com/vi/0NKUpo_xKyQ/default.jpg',
@@ -130,6 +131,7 @@ class defaultMedia extends Seeder{
             ),
             array(
                 'name'=>'Test Video 2 :)',
+                'slug'=>Str::slug('Test Video 2 :)'),
                 'description'=>'açıklama metni 2',
                 'src'=>'https://www.youtube.com/watch?v=RbtPXFlZlHg',
                 'thumbnail_src'=>'https://i1.ytimg.com/vi/RbtPXFlZlHg/default.jpg',
@@ -142,6 +144,7 @@ class defaultMedia extends Seeder{
             array(
 
                 'name'=>'Bahattinden - Dedemi ihbar etmeyi düşünüyorum :)',
+                'slug'=>Str::slug('Bahattinden - Dedemi ihbar etmeyi düşünüyorum :)'),
                 'description'=>'Oha çok iyi ya :)',
                 'src'=>'http://aykutaksu.com/wp-content/uploads/2013/11/baaddin-karikatur2.jpg',
                 'thumbnail_src'=>'',
@@ -153,6 +156,7 @@ class defaultMedia extends Seeder{
             ),
             array(
                 'name'=>'Hareketli Resim :)',
+                'slug'=>Str::slug('Hareketli Resim :)'),
                 'description'=>'açıklama metni test-- bu resim bir giftir',
                 'src'=>'http://www.thisiscolossal.com/wp-content/uploads/2013/01/3.gif',
                 'thumbnail_src'=>'',

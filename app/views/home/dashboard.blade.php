@@ -51,12 +51,12 @@
 
         <ul id="da-thumbs" class="da-thumbs">
 
-            @foreach ($images as $image)
+            @foreach ($medias as $image)
                 <li>
                     <div class="type">
                         {{ $image->icon() }}
                     </div>
-                    <a href="show/{{ $image->id }}/{{$image->slugName()}}">
+                    <a href="show/{{$image->slug }}">
                         @if($image->type==3)
                             <img src="{{ $image->thumbnail_src }}" width="200" height="200" />
                         @else
@@ -78,13 +78,13 @@
     <div class="tab-pane" id="images">
         <ul id="da-thumbs" class="da-thumbs">
 
-            @foreach ($images as $image)
+            @foreach ($medias as $image)
                 @if($image->type==0)
                     <li>
                         <div class="type">
                             {{ $image->icon() }}
                         </div>
-                        <a href="show/{{ $image->id }}/{{$image->slugName()}}">
+                        <a href="show/{{$image->slug}}">
                             <img src="{{ $image->src }}" width="200" height="200" />
                             <div>
                                 <span>{{ $image->name }}</span>
@@ -101,7 +101,7 @@
     <div class="tab-pane" id="gifs">
         <ul id="da-thumbs" class="da-thumbs">
 
-            @foreach ($images as $image)
+            @foreach ($medias as $image)
                 @if($image->type==1)
                     <li>
                         <div class="type">
@@ -124,7 +124,7 @@
     <div class="tab-pane" id="videos">
         <ul id="da-thumbs" class="da-thumbs">
 
-            @foreach ($videos as $video)
+            @foreach ($medias as $video)
             <li>
                 <div class="type">
                     <span class="glyphicon glyphicon-film"></span>
@@ -145,7 +145,7 @@
     <div class="tab-pane" id="vine">
         <ul id="da-thumbs" class="da-thumbs">
 
-            @foreach ($images as $image)
+            @foreach ($medias as $image)
             <li>
                 <div class="type">
                     {{ $image->icon() }}
