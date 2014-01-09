@@ -45,10 +45,28 @@ class HomeControllers extends BaseController {
 	 * @return Response
 	 */
 	public function show($slug)
-	{
+	{   //Cache Video Sites
+        $Media = Cache::remember('videoSites', 60, function()
+        {
+            return Media::All();
+        });
         $item         =DB::table('media')->where('slug', $slug)->first();
         $previousSlug = Media::where('id', '<', $item->id)->max('slug');
         $nextSlug     = Media::where('id', '>', $item->id)->first();
+
+        /*Parse URL*/
+        if($item->type==3){
+
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $item->src, $match)) {
+                $video_id = $match[1];
+                $videoUrl =$video_id;
+            }
+        }else{
+            $videoUrl     ='';
+        }
+
+
+        /*END PARSE*/
 
         //////////////////////////////////////////////
         $user=User::find($item->user_id);
@@ -58,6 +76,7 @@ class HomeControllers extends BaseController {
         $this->layout->content=View::make('home.show')
             ->with([
                 'show_item'=>$item,
+                'videoUrl'=>$videoUrl,
                 'username'=>$user,
                 'next'=>$nextSlug,
                 'prev'=>$previousSlug,

@@ -71,6 +71,12 @@
         <a id="prev_p" class="prev_p" title="Iguana" href="{{@$prev}}"></a>
         <a id="next_p" class="next_p" title="The Artists" href="{{@$next->slug}}"></a>
     </div>
-    <img src="{{$show_item->src}}" alt="" width="650" style="margin-left: 15px;"/>
+    @if($show_item->type==1)
+        <img src="{{$show_item->src}}" alt="" width="650" style="margin-left: 15px;"/>
+    @elseif($show_item->type==3)
+    <iframe src="http://www.youtube.com/embed/{{ $videoUrl }}?rel=0&autohide=1&showinfo=0" frameborder="0" width="650" height="350" style="margin-left: 15px;"></iframe>
+
+    @endif
+
 </div>
 <!--END SHOW BOX-->

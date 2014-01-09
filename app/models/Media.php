@@ -23,6 +23,7 @@ class Media extends Eloquent
         return $convert;
     }
 
+
     /**
      * Get the icon to the post.
      *
