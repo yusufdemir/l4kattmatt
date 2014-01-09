@@ -23,6 +23,46 @@ class Media extends Eloquent
         return $convert;
     }
 
+    public function prev()
+    {
+         $prev = Media::where('id', '<', $this->id)->orderBy('id', 'desc')->first();
+        if($prev->id==''){
+            return $getLast  = Media::where('id', '>', $this->id)->orderBy('id', 'desc')->first();
+        }else{
+            return $prev;
+        }
+
+    }
+
+    public function next()
+    {
+        $next = Media::where('id', '>', $this->id)->first();
+        if($next->id==''){
+            return $getFirst = Media::where('id', '<', $this->id)->first();
+        }else{
+            return $next;
+        }
+    }
+
+    public function username()
+    {
+        $user=User::find($this->user_id);
+        return $user;
+    }
+
+
+    public function youtubeUrl()
+    {
+        if($this->type==3){
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $this->src, $match)) {
+                $video_id = $match[1];
+                return $videoUrl =$video_id;
+            }
+        }else{
+            return $videoUrl     ='';
+        }
+    }
+
 
     /**
      * Get the icon to the post.
