@@ -93,8 +93,32 @@ padding-top:30px;
 
 }
 
+div.slide:hover{
+    border-bottom: 2px solid white;
+}
+
 .last-items img:hover{
-    border: 1px solid red;
+
+}
+
+.last-items span{
+    position: absolute;
+    margin: 50px 0px 0 55px;
+    font-size: 25px;
+    color: #F00;
+    text-shadow: 3px 2px 36px #000;
+}
+
+.last-items .lastTitle{
+    margin: -20px 0px 0px 0px;
+    display: block;
+    background-color: rgba(116, 0, 0, 0.79);
+    height: 20px;
+    color: #FFF;
+    font-size: 11px;
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
 }
 
 .bx-viewport{

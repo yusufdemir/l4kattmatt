@@ -63,7 +63,27 @@ class Media extends Eloquent
         }
     }
 
+    public function vineID()
+    {
+        $regex = '/^http(?:s?):\/\/(?:www\.)?vine\.co\/v\/([a-zA-Z0-9]{1,13})$/';
+        if($this->type==3){
+            if (preg_match($regex,$this->src,$match)) {
+                $video_id = $match;
+                return $videoUrl =$video_id;
+            }
+        }else{
+            return $videoUrl     ='';
+        }
+    }
 
+
+    public function  vineThumbnail()
+    {
+        $vine = file_get_contents("http://vine.co/v/".$this->vineID());
+        preg_match('/property="og:image" content="(.*?)"/', $vine, $matches);
+
+        return ($matches[1]) ? $matches[1] : false;
+    }
     /**
      * Get the icon to the post.
      *

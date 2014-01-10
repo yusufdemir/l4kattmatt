@@ -55,9 +55,9 @@
             $(document).ready(function(){
                 $('.slider4').bxSlider({
                     slideWidth: 800,
-                    minSlides: 5,
-                    maxSlides: 5,
-                    moveSlides: 5,
+                    minSlides: 7,
+                    maxSlides: 7,
+                    moveSlides: 7,
                     slideMargin: 10
                 });
             });
@@ -67,12 +67,22 @@
                 <div class="slider4" style="height: 150px;">
                     @foreach ($news as $new)
                         <div class="slide">
-                            <a href="/show/{{ $new->id }}/{{$new->slugName()}}">
+                            <a href="/show/{{ $new->slug }}">
                                 @if($new->type==3)
-                                <img src="{{ $new->thumbnail_src }}" width="200" height="120">
+                                    @if($new->video_site_id==3)
+                                        <img src="http://placehold.it/200x135&text=VineVideosu" width="150" height="120">
+                                    @else
+                                        <img src="{{ $new->thumbnail_src }}" width="150" height="120">
+                                    @endif
+
                                 @else
-                                <img src="{{ $new->src }}" width="200" height="120">
+                                    <img src="{{ $new->src }}" width="150" height="120">
                                 @endif
+                                {{ $new->icon() }}
+                                <span class="lastTitle">
+                                    <p>{{ $new->name }}</p>
+                                </span>
+
 
                             </a>
                         </div>

@@ -53,17 +53,27 @@
 
             @foreach ($medias as $image)
                 <li>
+                    <p>
+                        {{ $image->name }}
+                    </p>
                     <div class="type">
                         {{ $image->icon() }}
+
                     </div>
                     <a href="show/{{$image->slug }}">
                         @if($image->type==3)
-                            <img src="{{ $image->thumbnail_src }}" width="200" height="200" />
+
+                            @if($image->video_site_id==3)
+                                <img src="http://placehold.it/200x135&text=Görsel Hazırlanıyor" width="200" height="200" />
+                            @else
+                                <img src="{{ $image->thumbnail_src }}" width="200" height="200" />
+                            @endif
+
                         @else
                             <img src="{{ $image->src }}" width="200" height="200" />
                         @endif
                         <div>
-                            <span>{{ $image->name }}</span>
+
                             <span>{{ $image->description }}</span>
                         </div>
                     </a>
@@ -85,7 +95,11 @@
                             {{ $image->icon() }}
                         </div>
                         <a href="show/{{$image->slug}}">
-                            <img src="{{ $image->src }}" width="200" height="200" />
+                            @if($image->video_site_id==3)
+                                <img src="{{ $image->src }}" width="200" height="200" />
+                            @else
+                                <img src="{{ $image->src }}" width="200" height="200" />
+                            @endif
                             <div>
                                 <span>{{ $image->name }}</span>
                                 <span>{{ $image->description }}</span>

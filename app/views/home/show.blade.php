@@ -41,7 +41,18 @@
     @elseif($details->type==2)
         <img src="{{$details->src}}" alt="" width="650" style="margin-left: 15px;"/>
     @elseif($details->type==3)
-        <iframe src="http://www.youtube.com/embed/{{ $details->youtubeUrl() }}?rel=0&autohide=1&showinfo=0" frameborder="0" width="650" height="350" style="margin-left: 15px;"></iframe>
+        @if($details->video_site_id==2)
+            <!--Youtube Video-->
+            <iframe src="http://www.youtube.com/embed/{{ $details->youtubeUrl() }}?rel=0&autohide=1&showinfo=0&autoplay=1" frameborder="0" width="650" height="350" style="margin-left: 15px;"></iframe>
+        @elseif($details->video_site_id==3)
+            <!--Vine Video-->
+    <div class="video" style="width: 650px; height: 450px; overflow: hidden; position: relative;">
+        <iframe frameborder="0" scrolling="no" seamless="seamless" webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" id="okplayer" width="650" height="450" style="position: absolute; top: 0px; left: 0px; width: 650px; height: 450px; margin-left: 15px;" src="https://vine.co/v/bD93lqlUOFL/card?mute=0"></iframe>
+    </div>
+            <script async="" src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+        @endif
+            <!--END VİDEO-->
+
     @endif
 <!--Show Detail END-->
 
