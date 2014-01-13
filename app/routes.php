@@ -20,6 +20,11 @@ Route::get('/', array('as' => 'index', 'uses' => 'HomeControllers@index'));
 
 Route::get('show/{slug}', array('as' => 'show', 'uses' => 'HomeControllers@show'));
 
+Route::get('users', array('as' => 'users', 'uses' => 'UsersController@getLogin'));
 Route::controller('users', 'UsersController');
+
+
+Route::get('admin', array('as' => 'newPost', 'uses' => 'AdminController@index'));
+Route::controller('admin', 'AdminController');
 
 //Route::controller('pages', 'HomeControllers');

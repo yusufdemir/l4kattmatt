@@ -37,7 +37,7 @@
 
                 <!--Auth MENU-->
                 <ul class="topMenu" style="float: right;">
-                    <li>{{ HTML::link(URL::route('index'), 'Yükle') }}</li>
+                    <li>{{ HTML::link(URL::route('newPost'), 'Yükle') }}</li>
                     @if(!Auth::check())
                     <li>{{ HTML::link('users/register', 'Kayıt Ol') }}</li>
                     <li>{{ HTML::link('users/login', 'Giriş Yap') }}</li>

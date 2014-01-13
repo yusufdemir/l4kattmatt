@@ -33,8 +33,8 @@
         <div id="floating-box">
             <div id="right-social" style="margin-top: 0px;"></div>
         </div>
-        <a id="prev_p" class="prev_p" title="Iguana" href="{{@$details->prev()->slug}}"></a>
-        <a id="next_p" class="next_p" title="The Artists" href="{{@$details->next()->slug}}"></a>
+        <a id="prev_p" class="prev_p" title="PrevName" href="{{@$details->prev()->slug}}"></a>
+        <a id="next_p" class="next_p" title="Next Name" href="{{@$details->next()->slug}}"></a>
     </div>
     @if($details->type==1)
         <img src="{{$details->src}}" alt="" width="650" style="margin-left: 15px;"/>
